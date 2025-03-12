@@ -23,4 +23,9 @@ populations = [
 
 pop_hash = Hashtable(populations)
 
-pop_hash.__str__()
+# Getting the value of Inida
+print(pop_hash.get_value('India'))
+
+# Deleting Indonesia from the Hashtable
+new_hash = pop_hash.delete_value('Indonesia')
+print(new_hash)
