@@ -11,7 +11,7 @@ and displays the value(s) of a dictionary.
 
 class Dictionary:
     def __init__(self, size=10):
-        # Initializing the dictionary with empty buckets
+        # Initializing the dictionary with 10 buckets
         self.size = size
         self.data = [None] * size
     
