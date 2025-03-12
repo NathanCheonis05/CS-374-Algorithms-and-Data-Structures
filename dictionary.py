@@ -2,7 +2,8 @@
 
 Authors: Nathan Cheonis
 
-Description: This file contains a dictionary class that uses  . 
+Description: This file contains a dictionary class that uses hasing to set, get, delete, rehash, 
+and displays the value(s) of a dictionary. 
 '''
 
 # The dictionary key is the name of the country and the value is the population of the country
@@ -14,13 +15,13 @@ class Dictionary:
         self.size = size
         self.data = [None] * size
     
-    def _hash(self, key):
+    def hash_(self, key):
         # Hash function to determine the index of the key
         return hash(key) % self.size
     
     def set(self, key, value):
         # Inserting a key-value pair into the dictionary
-        index = self._hash(key)
+        index = self.hash_(key)
         start_index = index
         # Using a while loop to handle collisons
         
@@ -38,7 +39,7 @@ class Dictionary:
         
     def get(self, key):
         # the get function return the value of a key
-        index = self._hash(key)
+        index = self.hash_(key)
         start_index = index
         
         while self.data[index] is not None:
@@ -51,20 +52,20 @@ class Dictionary:
     
     def delete(self, key):
         # The delete function removes a key-value pair from the dictionary
-        index = self._hash(key)
+        index = self.hash_(key)
         start_index = index
         
         while self.data[index] is not None:
             current_key, _ = self.data[index]
             if current_key == key:
                 self.data[index] = None
-                self._rehash(index)
+                self.rehash_(index)
                 return True
             index = (index + 1) % self.size
         if index == start_index:
             return False
         
-    def _rehash(self, delete_index):
+    def rehash_(self, delete_index):
         index = (delete_index + 1) % self.size
         while self.data[index] is not None:
             key, value = self.data[index]
@@ -77,5 +78,4 @@ class Dictionary:
         # Displays the data stored in the dictionary
         for i in range(self.size):
             if self.data[i] is not None:
-                print(self.data[i])
-                
+                print(self.data[i])          
