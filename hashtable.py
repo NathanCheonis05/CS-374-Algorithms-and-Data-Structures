@@ -1,6 +1,6 @@
 '''
 
-Authors: Nathan Cheonis
+Author: Nathan Cheonis
 
 Description: This file contains a Hashtable class that uses hasing to assign buckets, 
 get, delete, and displays the value(s) of a Hashtable. 
